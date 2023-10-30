@@ -10,15 +10,18 @@ import {
 } from "@chakra-ui/react"
 import { useForm } from "react-hook-form"
 import isEmail from "validator/lib/isEmail"
+import { useUserProvider } from "@/app/Context/UserProvider"
 
 const Login = () => {
 
     const [isLargerThan300] = useMediaQuery('(max-width: 700px)')
     const { register, handleSubmit, formState: { errors } } = useForm()
-
+    const { login } = useUserProvider()
 
     const handleLogin = async (data) => {
-        console.log(data)
+        const result = await login(data)
+
+
     }
 
     return (
