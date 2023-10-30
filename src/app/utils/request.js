@@ -1,8 +1,8 @@
 import axios from "axios";
 
 
-const request = async ({ url, method, data }) => {
-    return axios({
+const request = async (url, method, data) => {
+    return await axios({
         url,
         method,
         data,
