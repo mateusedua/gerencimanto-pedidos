@@ -6,21 +6,32 @@ import {
     useColorModeValue,
     Image,
     Button,
-    useMediaQuery
+    useMediaQuery,
+    InputGroup,
+    InputRightElement
 } from "@chakra-ui/react"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import isEmail from "validator/lib/isEmail"
 import { useUserProvider } from "@/app/Context/UserProvider"
+import { MdVisibility } from 'react-icons/md'
+import { useState } from "react"
 
 const Login = () => {
 
+    const [show, setShow] = useState(false)
     const [isLargerThan300] = useMediaQuery('(max-width: 700px)')
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const { login } = useUserProvider()
+    const { login, isLoading } = useUserProvider()
+    const router = useRouter()
+
 
     const handleLogin = async (data) => {
-        const result = await login(data)
+        const status = await login(data)
 
+        if (status === 200) {
+            return router.push('/')
+        }
 
     }
 
@@ -71,22 +82,34 @@ const Login = () => {
                     }}>
                         Senha
                     </label>
-                    <Input
-                        variant='filled'
-                        placeholder="*******"
-                        size='lg'
-                        type="password"
-                        {...register('password', { required: true })}
-                    />
-                    {
-                        errors?.password?.type === 'required' &&
-                        <span style={{
-                            color: 'red'
-                        }}>Senha necessária</span>
-                    }
+                    <InputGroup>
+                        <Input
+                            variant='filled'
+                            placeholder="*******"
+                            size='lg'
+                            type={show ? 'text' : 'password'}
+                            {...register('password', { required: true })}
+                        />
+                        <InputRightElement width='4rem' height={'3rem'}>
+                            <MdVisibility
+                                style={{
+                                    width: 30,
+                                    height: 30,
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => setShow(!show)}
+                            />
+                        </InputRightElement>
+                        {
+                            errors?.password?.type === 'required' &&
+                            <span style={{
+                                color: 'red'
+                            }}>Senha necessária</span>
+                        }
+                    </InputGroup>
                 </Flex>
                 <Flex gap={2} minW='md'>
-                    <Button size='lg' minW='full' colorScheme='blue' onClick={() => handleSubmit(handleLogin)()}>Entrar</Button>
+                    <Button isLoading={isLoading} size='lg' minW='full' colorScheme='blue' onClick={() => handleSubmit(handleLogin)()}>Entrar</Button>
                 </Flex>
             </Flex>
         </Flex>
