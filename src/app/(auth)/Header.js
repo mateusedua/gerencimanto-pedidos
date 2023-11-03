@@ -24,6 +24,8 @@ const Header = () => {
             borderColor={useColorModeValue('gray.200', 'gray.900')}
             position={'fixed'}
             zIndex={999}
+            top={0}
+            left={0}
             width={'100%'}
             justifyContent={'space-between'}
         >
