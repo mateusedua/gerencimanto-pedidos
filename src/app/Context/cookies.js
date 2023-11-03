@@ -29,3 +29,11 @@ export const setCookies = (token, nome, id) => {
 export const getToken = () => {
     return cookies().get('token')
 }
+
+export const getNome = () => {
+    return cookies().get('nome')
+}
+
+export const getIdUser = () => {
+    return cookies().get('idUser')
+}
