@@ -2,11 +2,16 @@
 
 import { Flex, useColorModeValue, Box, Image, Text, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem } from "@chakra-ui/react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { distroyCookies } from "../Context/cookies"
 
 const Header = () => {
 
-    const handleSair = () => {
+    const router = useRouter()
 
+    const handleSair = () => {
+        distroyCookies()
+        router.push('/login')
     }
 
     return (
