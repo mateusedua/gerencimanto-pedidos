@@ -1,10 +1,11 @@
-import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { getToken } from "../Context/cookies"
 
 export default function RootLayout({ children }) {
 
-    const { value } = cookies().get('token')
-    if (value) redirect('/')
+
+    if (getToken() !== undefined) redirect('/')
+
 
     return (
         <>
