@@ -25,3 +25,7 @@ export const setCookies = (token, nome, id) => {
         secure: true
     })
 }
+
+export const getToken = () => {
+    return cookies().get('token')
+}
