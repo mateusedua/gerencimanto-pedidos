@@ -37,3 +37,10 @@ export const getNome = () => {
 export const getIdUser = () => {
     return cookies().get('idUser')
 }
+
+
+export const distroyCookies = () => {
+    cookies().delete('token')
+    cookies().delete('nome')
+    cookies().delete('idUser')
+}
