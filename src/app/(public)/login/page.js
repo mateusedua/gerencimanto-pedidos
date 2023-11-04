@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import isEmail from "validator/lib/isEmail"
-import { useUserProvider } from "@/app/Context/UserProvider"
+import { useUserProvider } from "@/Context/UserProvider"
 import { MdVisibility } from 'react-icons/md'
 import { useState } from "react"
 

@@ -1,16 +1,14 @@
-'use client'
-
-import { Providers } from "@/providers"
-import { UserProvider } from "./Context/UserProvider"
+import { Providers } from "@/provider/providers"
+import { UserProviderS } from "@/provider/userProvider"
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <body>
         <Providers>
-          <UserProvider>
+          <UserProviderS>
             {children}
-          </UserProvider>
+          </UserProviderS>
         </Providers>
       </body>
     </html>

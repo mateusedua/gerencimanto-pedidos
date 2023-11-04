@@ -1,10 +1,8 @@
-'use client'
-
 import Header from "../Header"
-import { getToken } from "@/app/Context/cookies"
+import { getToken } from "@/Context/cookies"
 import { redirect } from "next/navigation"
 import { Container } from "@chakra-ui/react"
-import { ProdutoProvider } from "@/app/Context/ProdutoProvider"
+import { ProdutoProviderS } from "@/provider/produtoProvider"
 
 export default function Template({ children }) {
 
@@ -12,14 +10,11 @@ export default function Template({ children }) {
 
     return (
         <>
-            <head>
-                <title>Produto</title>
-            </head>
             <Container maxW={'100%'}>
-                <ProdutoProvider>
+                <ProdutoProviderS>
                     <Header />
                     {children}
-                </ProdutoProvider>
+                </ProdutoProviderS>
             </Container>
         </>
     )

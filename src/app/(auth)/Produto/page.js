@@ -1,8 +1,12 @@
 'use client'
 
+import { Container } from "@chakra-ui/react"
+
 const Produto = () => {
     return (
-        <h1>Produto</h1>
+        <Container maxW={'container.full'} mt={'250px'}>
+            <h1>teste</h1>
+        </Container>
     )
 }
 

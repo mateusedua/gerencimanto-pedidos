@@ -1,5 +1,5 @@
 import userData from "../data/userData"
-import validData from "@/app/utils/validData"
+import validData from "@/utils/validData"
 import { encodeData } from "../lib/jwt"
 
 const getUserService = async (data) => {

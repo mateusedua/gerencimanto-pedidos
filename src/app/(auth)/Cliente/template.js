@@ -1,10 +1,7 @@
-'use client'
-
-
 import Header from "../Header"
-import { getToken } from "@/app/Context/cookies"
+import { getToken } from "@/Context/cookies"
 import { redirect } from "next/navigation"
-import { ClienteProvider } from "@/app/Context/ClienteProvider"
+import { ClienteProviderS } from "@/provider/clienteProvider"
 
 export default function Template({ children }) {
 
@@ -12,13 +9,10 @@ export default function Template({ children }) {
 
     return (
         <>
-            <head>
-                <title>Cliente</title>
-            </head>
-            <ClienteProvider>
+            <ClienteProviderS>
                 <Header />
                 {children}
-            </ClienteProvider>
+            </ClienteProviderS>
         </>
     )
 }

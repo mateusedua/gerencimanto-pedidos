@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useState } from "react";
-import request from "../utils/request";
+import request from "@/utils/request";
 import { setCookies } from "./cookies";
 
 export const userContext = createContext({})

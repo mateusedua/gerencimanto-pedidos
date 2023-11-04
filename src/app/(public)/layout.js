@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { getToken } from "../Context/cookies"
+import { getToken } from "../../Context/cookies"
 
 export default function RootLayout({ children }) {
 
