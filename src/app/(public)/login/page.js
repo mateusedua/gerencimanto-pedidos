@@ -37,21 +37,22 @@ const Login = () => {
 
     return (
         <Flex maxW="container.full" h='100vh' alignItems='center' justify='center'>
-            <Flex w='500px'
+            <Flex maxW={'700px'}
+                w={'400px'}
                 direction='column'
                 alignItems='center'
                 justify='center'
                 borderWidth={isLargerThan300 ? 'none' : '1px'}
                 borderStyle='solid'
-                py={{ base: 10 }}
+                p={7}
                 borderRadius='lg'
                 gap={4}
                 borderColor={useColorModeValue('gray.300', 'gray.900')}>
                 <Image src="logo.png"
-                    boxSize='150px'
+                    boxSize='120px'
                     borderRadius='full'
                 />
-                <Flex direction='column' minW='md' gap={2}>
+                <Flex direction='column' gap={2} w={'full'}>
                     <label htmlFor="email" style={{
                         fontSize: '18px'
                     }}>
@@ -76,7 +77,7 @@ const Login = () => {
                         }}>E-mail invalído</span>
                     }
                 </Flex>
-                <Flex direction='column' minW='md' gap={2}>
+                <Flex direction='column' gap={2} w={'full'}>
                     <label htmlFor="password" style={{
                         fontSize: '18px'
                     }}>
@@ -108,7 +109,7 @@ const Login = () => {
                         }
                     </InputGroup>
                 </Flex>
-                <Flex gap={2} minW='md'>
+                <Flex gap={2} w={'full'}>
                     <Button isLoading={isLoading} size='lg' minW='full' colorScheme='blue' onClick={() => handleSubmit(handleLogin)()}>Entrar</Button>
                 </Flex>
             </Flex>
