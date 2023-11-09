@@ -9,6 +9,7 @@ export default function Template({ children }) {
 
     return (
         <>
+            <title>Cliente</title>
             <ClienteProviderS>
                 <Header />
                 {children}

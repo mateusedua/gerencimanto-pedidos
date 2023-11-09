@@ -10,6 +10,7 @@ export default function Template({ children }) {
 
     return (
         <>
+            <title>Produto</title>
             <Container maxW={'100%'}>
                 <ProdutoProviderS>
                     <Header />
