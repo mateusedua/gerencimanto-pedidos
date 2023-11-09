@@ -64,7 +64,7 @@ const Header = () => {
                             color={useColorModeValue('gray.600', 'gray.200')}
                             _hover={{
                                 color: useColorModeValue('gray.800', 'white'),
-                            }}>Início</Text>
+                            }}>Pedidos</Text>
                     </Link>
                     <Link
                         href="/Produto"
