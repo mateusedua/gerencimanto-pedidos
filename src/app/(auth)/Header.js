@@ -1,17 +1,36 @@
 'use client'
 
-import { Flex, useColorModeValue, Box, Image, Text, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, Button, Input } from "@chakra-ui/react"
+import {
+    Flex,
+    useColorModeValue,
+    Box,
+    Image,
+    Text,
+    Menu,
+    MenuButton,
+    Avatar,
+    MenuList,
+    Center,
+    MenuDivider,
+    MenuItem,
+    Button,
+    Input,
+    useDisclosure
+} from "@chakra-ui/react"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { distroyCookies } from "../../Context/cookies"
 import { useEffect, useState } from "react"
 import { getNome } from "../../Context/cookies"
+import cadastroProduto from "@/components/cadastroProduto"
 
 const Header = () => {
 
     const router = useRouter()
     const path = usePathname()
     const [nome, setNome] = useState()
+    const { onClose, onOpen, isOpen } = useDisclosure()
+
 
     const handleSair = () => {
         distroyCookies()
@@ -119,9 +138,16 @@ const Header = () => {
             {
                 path === '/Produto' &&
                 <Flex width={'100%'} padding={7} direction={'column'} gap={3}>
-                    <Button size={'md'} colorScheme="green" maxW={150}>Cadastrar</Button>
+                    <Button size={'md'}
+                        colorScheme="green"
+                        maxW={150}
+                        onClick={onOpen}
+                    >Cadastrar</Button>
                     <Input variant={'filled'} maxW={'lg'} placeholder="Pesquisar ..." />
                 </Flex>
+            }
+            {
+                cadastroProduto(isOpen, onClose)
             }
         </Flex>
     )
