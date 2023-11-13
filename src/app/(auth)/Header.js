@@ -53,7 +53,7 @@ const Header = () => {
             zIndex={999}
             top={0}
             left={0}
-            width={'100%'}
+            w={'full'}
             direction={'column'}
         >
             <Flex justifyContent={'space-between'}
@@ -137,10 +137,10 @@ const Header = () => {
             </Flex>
             {
                 path === '/Produto' &&
-                <Flex width={'100%'} padding={7} direction={'column'} gap={3}>
+                <Flex w={'full'} padding={7} direction={'column'} gap={3}>
                     <Button size={'md'}
                         colorScheme="green"
-                        maxW={150}
+                        maxW={120}
                         onClick={onOpen}
                     >Cadastrar</Button>
                     <Input variant={'filled'} maxW={'lg'} placeholder="Pesquisar ..." />
