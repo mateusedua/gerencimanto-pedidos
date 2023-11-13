@@ -2,7 +2,10 @@ import produtoService from "../service/produtoService"
 
 
 export async function GET() {
-    const result = await produtoService.getProduto()
-
-    return Response.json(result)
+    try {
+        const result = await produtoService.getProduto()
+        return result
+    } catch (err) {
+        console.log(err)
+    }
 }
