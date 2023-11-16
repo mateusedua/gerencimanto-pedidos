@@ -16,13 +16,18 @@ import {
 import { useForm } from 'react-hook-form'
 import maskMoney from "@/utils/maskMoney"
 import maskNumber from "@/utils/maskNumber"
+import { useProdutoProvider } from "@/Context/ProdutoProvider"
 
 const cadastroProduto = (isOpen, onClose) => {
 
     const { register, reset, handleSubmit, formState: { errors } } = useForm()
+    const {
+        handleCadastroProduto
+    } = useProdutoProvider()
 
     const handleCadastrar = async (data) => {
-        console.log(data)
+        const result = await handleCadastroProduto(data)
+
     }
 
     const handleCancelar = () => {
